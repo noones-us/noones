@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noonesweb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fafafa;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 4px 8px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .lang-btn.active {
+            background: #2980b9;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-weight: 300;
+            color: #34495e;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .content {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tech-card {
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .tech-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .tech-card p {
+            font-size: 0.95em;
+            margin-bottom: 0;
+        }
+
+        .quote {
+            background: #ecf0f1;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 6px;
+            font-style: italic;
+            color: #34495e;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 60px;
+            color: #bdc3c7;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.9em;
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-selector {
+                position: static;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="it">IT</button>
+                <button class="lang-btn" data-lang="pt">PT</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="ja">JA</button>
+                <button class="lang-btn" data-lang="ko">KO</button>
+                <button class="lang-btn" data-lang="zh">ZH</button>
+            </div>
+            <h1 data-translate="title">noonesweb</h1>
+            <p class="tagline" data-translate="tagline">thoughts on the technology around us</p>
+        </header>
+
+        <main>
+            <div class="content">
+                <h2 data-translate="section1_title">The Tech Landscape of 2025</h2>
+                <p data-translate="section1_p1">We live in an era where technology has stopped being a novelty and become the air we breathe. Every morning we unlock our phones without thinking about the miracle of having instant access to all human knowledge.</p>
+                
+                <p data-translate="section1_p2">But beyond the initial fascination, an inevitable question arises: where are we really heading?</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3 data-translate="ai_title">Artificial Intelligence</h3>
+                    <p data-translate="ai_desc">It's no longer science fiction. It's in our emails, our photos, even in how we shop online. The question isn't whether it will arrive, but how we'll coexist with it.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3 data-translate="vr_title">Virtual Reality</h3>
+                    <p data-translate="vr_desc">Metaverses promise infinite worlds, but sometimes I wonder if we're creating digital refuges to escape very real problems.</p>
+                </div>
+                
+                <div class="tech-card">
+                    <h3 data-translate="quantum_title">Quantum Computing</h3>
+                    <p data-translate="quantum_desc">It sounds like magic, but companies like IBM and Google are already running quantum races. Maybe the next revolution will be quieter than we expect.</p>
+                </div>
+            </div>
+
+            <div class="quote" data-translate="quote">
+                Technology is neither good nor bad, but it's not neutral either. Every line of code, every algorithm, every design decision carries with it the intentions and biases of those who create it.
+            </div>
+
+            <div class="content">
+                <h2 data-translate="section2_title">What Really Troubles Me</h2>
+                <p data-translate="section2_p1">It's not the robots that might take our jobs. It's the speed. Ten years ago, a smartphone was a luxury. Today, a five-year-old handles a tablet better than many adults handled a computer in 1995.</p>
+                
+                <p data-translate="section2_p2">Are we adapting or just letting ourselves be carried along? Sometimes I feel like we're running behind updates without asking ourselves if we really need everything technology offers us.</p>
+                
+                <p data-translate="section2_p3">But there's also the other side: the possibilities are infinite. Personalized medicine, clean energy, human connections that transcend borders. Technology can be our best tool if we learn to use it consciously.</p>
+            </div>
+
+            <div class="content">
+                <h2 data-translate="section3_title">A Personal Reflection</h2>
+                <p data-translate="section3_p1">I write this from my laptop, with streaming music in the background, while receiving notifications that interrupt my concentration every few minutes. The irony doesn't escape me.</p>
+                
+                <p data-translate="section3_p2">Maybe the real revolution isn't in the next innovation, but in learning when to disconnect. In remembering that behind every screen are real people, with real problems, seeking authentic connections in an increasingly digital world.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p data-translate="footer">noonesweb • just some loose thoughts on technology • 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "noonesweb",
+                tagline: "thoughts on the technology around us",
+                section1_title: "The Tech Landscape of 2025",
+                section1_p1: "We live in an era where technology has stopped being a novelty and become the air we breathe. Every morning we unlock our phones without thinking about the miracle of having instant access to all human knowledge.",
+                section1_p2: "But beyond the initial fascination, an inevitable question arises: where are we really heading?",
+                ai_title: "Artificial Intelligence",
+                ai_desc: "It's no longer science fiction. It's in our emails, our photos, even in how we shop online. The question isn't whether it will arrive, but how we'll coexist with it.",
+                vr_title: "Virtual Reality",
+                vr_desc: "Metaverses promise infinite worlds, but sometimes I wonder if we're creating digital refuges to escape very real problems.",
+                quantum_title: "Quantum Computing",
+                quantum_desc: "It sounds like magic, but companies like IBM and Google are already running quantum races. Maybe the next revolution will be quieter than we expect.",
+                quote: "Technology is neither good nor bad, but it's not neutral either. Every line of code, every algorithm, every design decision carries with it the intentions and biases of those who create it.",
+                section2_title: "What Really Troubles Me",
+                section2_p1: "It's not the robots that might take our jobs. It's the speed. Ten years ago, a smartphone was a luxury. Today, a five-year-old handles a tablet better than many adults handled a computer in 1995.",
+                section2_p2: "Are we adapting or just letting ourselves be carried along? Sometimes I feel like we're running behind updates without asking ourselves if we really need everything technology offers us.",
+                section2_p3: "But there's also the other side: the possibilities are infinite. Personalized medicine, clean energy, human connections that transcend borders. Technology can be our best tool if we learn to use it consciously.",
+                section3_title: "A Personal Reflection",
+                section3_p1: "I write this from my laptop, with streaming music in the background, while receiving notifications that interrupt my concentration every few minutes. The irony doesn't escape me.",
+                section3_p2: "Maybe the real revolution isn't in the next innovation, but in learning when to disconnect. In remembering that behind every screen are real people, with real problems, seeking authentic connections in an increasingly digital world.",
+                footer: "noonesweb • just some loose thoughts on technology • 2025"
+            },
+            es: {
+                title: "noonesweb",
+                tagline: "reflexiones sobre la tecnología que nos rodea",
+                section1_title: "El paisaje tecnológico de 2025",
+                section1_p1: "Vivimos en una época donde la tecnología ha dejado de ser una novedad para convertirse en el aire que respiramos. Cada mañana desbloqueamos nuestros teléfonos sin pensar en el milagro que representa tener acceso instantáneo a toda la información humana.",
+                section1_p2: "Pero más allá de la fascinación inicial, surge una pregunta inevitable: ¿hacia dónde nos dirigimos realmente?",
+                ai_title: "Inteligencia Artificial",
+                ai_desc: "Ya no es ciencia ficción. Está en nuestros correos, nuestras fotos, incluso en la forma en que compramos online. La pregunta ya no es si llegará, sino cómo conviviremos con ella.",
+                vr_title: "Realidad Virtual",
+                vr_desc: "Los metaversos prometen mundos infinitos, pero a veces me pregunto si no estamos creando refugios digitales para huir de problemas muy reales.",
+                quantum_title: "Computación Cuántica",
+                quantum_desc: "Suena a magia, pero empresas como IBM y Google ya están corriendo carreras cuánticas. Tal vez la próxima revolución sea más silenciosa de lo que esperamos.",
+                quote: "La tecnología no es buena ni mala, pero tampoco es neutra. Cada línea de código, cada algoritmo, cada decisión de diseño lleva consigo las intenciones y sesgos de quienes la crean.",
+                section2_title: "Lo que realmente me inquieta",
+                section2_p1: "No son los robots que podrían quitarnos el trabajo. Es la velocidad. Hace diez años, un smartphone era un lujo. Hoy, un niño de cinco años maneja una tablet mejor que muchos adultos manejaban una computadora en 1995.",
+                section2_p2: "¿Estamos adaptándonos o simplemente dejándonos llevar? A veces siento que corremos detrás de las actualizaciones sin preguntarnos si realmente necesitamos todo lo que la tecnología nos ofrece.",
+                section2_p3: "Pero también está el otro lado: las posibilidades son infinitas. Medicina personalizada, energías limpias, conexiones humanas que trascienden fronteras. La tecnología puede ser nuestra mejor herramienta si aprendemos a usarla conscientemente.",
+                section3_title: "Una reflexión personal",
+                section3_p1: "Escribo esto desde mi laptop, con música en streaming de fondo, mientras recibo notificaciones que interrumpen mi concentración cada pocos minutos. La ironía no se me escapa.",
+                section3_p2: "Tal vez la verdadera revolución no esté en la próxima innovación, sino en aprender cuándo desconectar. En recordar que detrás de cada pantalla hay personas reales, con problemas reales, buscando conexiones auténticas en un mundo cada vez más digital.",
+                footer: "noonesweb • solo algunas ideas sueltas sobre tecnología • 2025"
+            },
+            fr: {
+                title: "noonesweb",
+                tagline: "réflexions sur la technologie qui nous entoure",
+                section1_title: "Le paysage technologique de 2025",
+                section1_p1: "Nous vivons à une époque où la technologie a cessé d'être une nouveauté pour devenir l'air que nous respirons. Chaque matin, nous déverrouillons nos téléphones sans penser au miracle d'avoir un accès instantané à toute la connaissance humaine.",
+                section1_p2: "Mais au-delà de la fascination initiale, une question inévitable se pose : où allons-nous vraiment ?",
+                ai_title: "Intelligence Artificielle",
+                ai_desc: "Ce n'est plus de la science-fiction. Elle est dans nos emails, nos photos, même dans notre façon d'acheter en ligne. La question n'est plus de savoir si elle arrivera, mais comment nous coexisterons avec elle.",
+                vr_title: "Réalité Virtuelle",
+                vr_desc: "Les métavers promettent des mondes infinis, mais parfois je me demande si nous ne créons pas des refuges numériques pour fuir des problèmes bien réels.",
+                quantum_title: "Informatique Quantique",
+                quantum_desc: "Cela ressemble à de la magie, mais des entreprises comme IBM et Google mènent déjà des courses quantiques. Peut-être que la prochaine révolution sera plus silencieuse que nous l'attendons.",
+                quote: "La technologie n'est ni bonne ni mauvaise, mais elle n'est pas neutre non plus. Chaque ligne de code, chaque algorithme, chaque décision de conception porte en elle les intentions et les biais de ceux qui la créent.",
+                section2_title: "Ce qui me trouble vraiment",
+                section2_p1: "Ce ne sont pas les robots qui pourraient prendre nos emplois. C'est la vitesse. Il y a dix ans, un smartphone était un luxe. Aujourd'hui, un enfant de cinq ans manipule une tablette mieux que beaucoup d'adultes ne manipulaient un ordinateur en 1995.",
+                section2_p2: "Nous adaptons-nous ou nous laissons-nous simplement porter ? Parfois j'ai l'impression que nous courons derrière les mises à jour sans nous demander si nous avons vraiment besoin de tout ce que la technologie nous offre.",
+                section2_p3: "Mais il y a aussi l'autre côté : les possibilités sont infinies. Médecine personnalisée, énergies propres, connexions humaines qui transcendent les frontières. La technologie peut être notre meilleur outil si nous apprenons à l'utiliser consciemment.",
+                section3_title: "Une réflexion personnelle",
+                section3_p1: "J'écris ceci depuis mon ordinateur portable, avec de la musique en streaming en arrière-plan, tout en recevant des notifications qui interrompent ma concentration toutes les quelques minutes. L'ironie ne m'échappe pas.",
+                section3_p2: "Peut-être que la vraie révolution n'est pas dans la prochaine innovation, mais dans l'apprentissage de savoir quand se déconnecter. Se rappeler que derrière chaque écran se trouvent de vraies personnes, avec de vrais problèmes, cherchant des connexions authentiques dans un monde de plus en plus numérique.",
+                footer: "noonesweb • juste quelques pensées éparses sur la technologie • 2025"
+            },
+            de: {
+                title: "noonesweb",
+                tagline: "gedanken über die technologie um uns herum",
+                section1_title: "Die Technologielandschaft von 2025",
+                section1_p1: "Wir leben in einer Zeit, in der Technologie aufgehört hat, eine Neuheit zu sein, und zur Luft geworden ist, die wir atmen. Jeden Morgen entsperren wir unsere Telefone, ohne an das Wunder zu denken, sofortigen Zugang zu allem menschlichen Wissen zu haben.",
+                section1_p2: "Aber jenseits der anfänglichen Faszination entsteht eine unvermeidliche Frage: Wo gehen wir wirklich hin?",
+                ai_title: "Künstliche Intelligenz",
+                ai_desc: "Es ist keine Science-Fiction mehr. Sie ist in unseren E-Mails, unseren Fotos, sogar in der Art, wie wir online einkaufen. Die Frage ist nicht, ob sie kommen wird, sondern wie wir mit ihr koexistieren werden.",
+                vr_title: "Virtual Reality",
+                vr_desc: "Metaversen versprechen unendliche Welten, aber manchmal frage ich mich, ob wir nicht digitale Zufluchtsorte schaffen, um sehr realen Problemen zu entkommen.",
+                quantum_title: "Quantencomputing",
+                quantum_desc: "Es klingt wie Magie, aber Unternehmen wie IBM und Google führen bereits Quantenrennen. Vielleicht wird die nächste Revolution leiser sein als wir erwarten.",
+                quote: "Technologie ist weder gut noch schlecht, aber sie ist auch nicht neutral. Jede Codezeile, jeder Algorithmus, jede Designentscheidung trägt die Absichten und Vorurteile derjenigen in sich, die sie schaffen.",
+                section2_title: "Was mich wirklich beunruhigt",
+                section2_p1: "Es sind nicht die Roboter, die uns die Jobs wegnehmen könnten. Es ist die Geschwindigkeit. Vor zehn Jahren war ein Smartphone ein Luxus. Heute beherrscht ein Fünfjähriger ein Tablet besser als viele Erwachsene 1995 einen Computer beherrschten.",
+                section2_p2: "Passen wir uns an oder lassen wir uns einfach mitreißen? Manchmal habe ich das Gefühl, dass wir Updates hinterherlaufen, ohne uns zu fragen, ob wir wirklich alles brauchen, was die Technologie uns bietet.",
+                section2_p3: "Aber es gibt auch die andere Seite: Die Möglichkeiten sind unendlich. Personalisierte Medizin, saubere Energie, menschliche Verbindungen, die Grenzen überschreiten. Technologie kann unser bestes Werkzeug sein, wenn wir lernen, sie bewusst zu nutzen.",
+                section3_title: "Eine persönliche Reflexion",
+                section3_p1: "Ich schreibe dies von meinem Laptop aus, mit Streaming-Musik im Hintergrund, während ich Benachrichtigungen erhalte, die alle paar Minuten meine Konzentration unterbrechen. Die Ironie entgeht mir nicht.",
+                section3_p2: "Vielleicht liegt die wahre Revolution nicht in der nächsten Innovation, sondern darin zu lernen, wann man sich trennt. Sich daran zu erinnern, dass hinter jedem Bildschirm echte Menschen mit echten Problemen stehen, die authentische Verbindungen in einer zunehmend digitalen Welt suchen.",
+                footer: "noonesweb • nur einige lose Gedanken zur Technologie • 2025"
+            },
+            it: {
+                title: "noonesweb",
+                tagline: "riflessioni sulla tecnologia che ci circonda",
+                section1_title: "Il paesaggio tecnologico del 2025",
+                section1_p1: "Viviamo in un'era in cui la tecnologia ha smesso di essere una novità ed è diventata l'aria che respiriamo. Ogni mattina sblocchiamo i nostri telefoni senza pensare al miracolo di avere accesso istantaneo a tutta la conoscenza umana.",
+                section1_p2: "Ma oltre il fascino iniziale, sorge una domanda inevitabile: dove stiamo davvero andando?",
+                ai_title: "Intelligenza Artificiale",
+                ai_desc: "Non è più fantascienza. È nelle nostre email, nelle nostre foto, persino nel modo in cui facciamo acquisti online. La domanda non è se arriverà, ma come coesisteremo con essa.",
+                vr_title: "Realtà Virtuale",
+                vr_desc: "I metaversi promettono mondi infiniti, ma a volte mi chiedo se non stiamo creando rifugi digitali per fuggire da problemi molto reali.",
+                quantum_title: "Computing Quantistico",
+                quantum_desc: "Suona come magia, ma aziende come IBM e Google stanno già correndo gare quantistiche. Forse la prossima rivoluzione sarà più silenziosa di quanto ci aspettiamo.",
+                quote: "La tecnologia non è né buona né cattiva, ma non è nemmeno neutrale. Ogni riga di codice, ogni algoritmo, ogni decisione di design porta con sé le intenzioni e i pregiudizi di chi la crea.",
+                section2_title: "Quello che mi turba davvero",
+                section2_p1: "Non sono i robot che potrebbero toglierci il lavoro. È la velocità. Dieci anni fa, uno smartphone era un lusso. Oggi, un bambino di cinque anni gestisce un tablet meglio di come molti adulti gestivano un computer nel 1995.",
+                section2_p2: "Ci stiamo adattando o ci stiamo semplicemente facendo trascinare? A volte sento che corriamo dietro agli aggiornamenti senza chiederci se abbiamo davvero bisogno di tutto quello che la tecnologia ci offre.",
+                section2_p3: "Ma c'è anche l'altro lato: le possibilità sono infinite. Medicina personalizzata, energia pulita, connessioni umane che trascendono i confini. La tecnologia può essere il nostro miglior strumento se impariamo a usarla consapevolmente.",
+                section3_title: "Una riflessione personale",
+                section3_p1: "Scrivo questo dal mio laptop, con musica in streaming in sottofondo, mentre ricevo notifiche che interrompono la mia concentrazione ogni pochi minuti. L'ironia non mi sfugge.",
+                section3_p2: "Forse la vera rivoluzione non è nella prossima innovazione, ma nell'imparare quando disconnettersi. Nel ricordare che dietro ogni schermo ci sono persone reali, con problemi reali, che cercano connessioni autentiche in un mondo sempre più digitale.",
+                footer: "noonesweb • solo alcuni pensieri sparsi sulla tecnologia • 2025"
+            },
+            pt: {
+                title: "noonesweb",
+                tagline: "reflexões sobre a tecnologia ao nosso redor",
+                section1_title: "O cenário tecnológico de 2025",
+                section1_p1: "Vivemos numa era onde a tecnologia deixou de ser uma novidade e tornou-se o ar que respiramos. Todas as manhãs desbloqueamos nossos telefones sem pensar no milagre de ter acesso instantâneo a todo o conhecimento humano.",
+                section1_p2: "Mas além do fascínio inicial, surge uma pergunta inevitável: para onde estamos realmente indo?",
+                ai_title: "Inteligência Artificial",
+                ai_desc: "Já não é ficção científica. Está nos nossos emails, nas nossas fotos, até na forma como compramos online. A pergunta não é se chegará, mas como coexistiremos com ela.",
+                vr_title: "Realidade Virtual",
+                vr_desc: "Os metaversos prometem mundos infinitos, mas às vezes pergunto-me se não estamos criando refúgios digitais para fugir de problemas muito reais.",
+                quantum_title: "Computação Quântica",
+                quantum_desc: "Soa como mágica, mas empresas como IBM e Google já estão correndo corridas quânticas. Talvez a próxima revolução seja mais silenciosa do que esperamos.",
+                quote: "A tecnologia não é boa nem má, mas também não é neutra. Cada linha de código, cada algoritmo, cada decisão de design carrega consigo as intenções e preconceitos daqueles que a criam.",
+                section2_title: "O que realmente me preocupa",
+                section2_p1: "Não são os robôs que poderiam tirar nossos empregos. É a velocidade. Há dez anos, um smartphone era um luxo. Hoje, uma criança de cinco anos manuseia um tablet melhor do que muitos adultos manuseavam um computador em 1995.",
+                section2_p2: "Estamos nos adaptando ou apenas nos deixando levar? Às vezes sinto que corremos atrás das atualizações sem nos perguntarmos se realmente precisamos de tudo que a tecnologia nos oferece.",
+                section2_p3: "Mas também há o outro lado: as possibilidades são infinitas. Medicina personalizada, energia limpa, conexões humanas que transcendem fronteiras. A tecnologia pode ser nossa melhor ferramenta se aprendermos a usá-la conscientemente.",
+                section3_title: "Uma reflexão pessoal",
+                section3_p1: "Escrevo isto do meu laptop, com música em streaming ao fundo, enquanto recebo notificações que interrompem minha concentração a cada poucos minutos. A ironia não me escapa.",
+                section3_p2: "Talvez a verdadeira revolução não esteja na próxima inovação, mas em aprender quando desconectar. Em lembrar que atrás de cada tela há pessoas reais, com problemas reais, buscando conexões autênticas num mundo cada vez mais digital.",
+                footer: "noonesweb • apenas alguns pensamentos soltos sobre tecnologia • 2025"
+            },
+            ru: {
+                title: "noonesweb",
+                tagline: "размышления о технологиях вокруг нас",
+                section1_title: "Технологический ландшафт 2025",
+                section1_p1: "Мы живем в эпоху, когда технология перестала быть новинкой и стала воздухом, которым мы дышим. Каждое утро мы разблокируем телефоны, не думая о чуде мгновенного доступа ко всем человеческим знаниям.",
+                section1_p2: "Но за начальным восхищением возникает неизбежный вопрос: куда мы на самом деле движемся?",
+                ai_title: "Искусственный интеллект",
+                ai_desc: "Это уже не научная фантастика. Он в наших письмах, наших фотографиях, даже в том, как мы покупаем онлайн. Вопрос не в том, придет ли он, а в том, как мы будем с ним сосуществовать.",
+                vr_title: "Виртуальная реальность",
+                vr_desc: "Метавселенные обещают бесконечные миры, но иногда я задаюсь вопросом, не создаем ли мы цифровые убежища, чтобы убежать от очень реальных проблем.",
+                quantum_title: "Квантовые вычисления",
+                quantum_desc: "Звучит как магия, но такие компании, как IBM и Google, уже ведут квантовые гонки. Возможно, следующая революция будет тише, чем мы ожидаем.",
+                quote: "Технология не хороша и не плоха, но она также не нейтральна. Каждая строчка кода, каждый алгоритм, каждое дизайнерское решение несет в себе намерения и предрассудки тех, кто их создает.",
+                section2_title: "Что меня действительно беспокоит",
+                section2_p1: "Не роботы, которые могут отнять наши рабочие места. Это скорость. Десять лет назад смартфон был роскошью. Сегодня пятилетний ребенок обращается с планшетом лучше, чем многие взрослые обращались с компьютером в 1995 году.",
+                section2_p2: "Мы адаптируемся или просто позволяем себя нести? Иногда мне кажется, что мы гонимся за обновлениями, не спрашивая себя, действительно ли нам нужно все, что предлагает технология.",
+                section2_p3: "Но есть и другая сторона: возможности безграничны. Персонализированная медицина, чистая энергия, человеческие связи, которые преодолевают границы. Технология может быть нашим лучшим инструментом, если мы научимся использовать ее осознанно.",
+                section3_title: "Личное размышление",
+                section3_p1: "Я пишу это с моего ноутбука, со стриминговой музыкой на фоне, получая уведомления, которые прерывают мою концентрацию каждые несколько минут. Ирония мне не чужда.",
+                section3_p2: "Возможно, настоящая революция не в следующей инновации, а в умении отключаться. В том, чтобы помнить, что за каждым экраном стоят реальные люди с реальными проблемами, ищущие подлинные связи во все более цифровом мире.",
+                footer: "noonesweb • просто несколько свободных мыслей о технологиях • 2025"
+            },
+            ja: {
+                title: "noonesweb",
+                tagline: "私たちの周りのテクノロジーについての考察",
+                section1_title: "2025年のテクノロジー事情",
+                section1_p1: "私たちは、テクノロジーが新しいものではなく、呼吸する空気のようになった時代に生きています。毎朝、人類のすべての知識への瞬時のアクセスという奇跡を考えることなく、携帯電話のロックを解除しています。",
+                section1_p2: "しかし、初期の魅力を超えて、避けられない疑問が生まれます：私たちは本当にどこへ向かっているのでしょうか？",
+                ai_title: "人工知能",
+                ai_desc: "もはやSFではありません。私たちのメール、写真、さらにオンラインショッピングの方法にも存在します。問題は、それが到来するかどうかではなく、どのように共存するかです。",
+                vr_title: "バーチャルリアリティ",
+                vr_desc: "メタバースは無限の世界を約束しますが、時々、非常に現実的な問題から逃れるためにデジタル避難所を作っているのではないかと思います。",
+                quantum_title: "量子コンピューティング",
+                quantum_desc: "魔法のように聞こえますが、IBMやGoogleなどの企業はすでに量子競争を行っています。次の革命は私たちが期待するよりも静かかもしれません。",
+                quote: "テクノロジーは善でも悪でもありませんが、中立でもありません。すべてのコード行、すべてのアルゴリズム、すべてのデザイン決定には、それを作成する人々の意図と偏見が含まれています。",
+                section2_title: "本当に私を悩ませるもの",
+                section2_p1: "私たちの仕事を奪うかもしれないロボットではありません。それはスピードです。10年前、スマートフォンは贅沢品でした。今日、5歳の子供が1995年に多くの大人がコンピューターを扱っていたよりも上手にタブレットを扱います。",
+                section2_p2: "私たちは適応しているのでしょうか、それとも単に流されているのでしょうか？時々、テクノロジーが提供するすべてが本当に必要かどうか自問することなく、アップデートを追いかけているような気がします。",
+                section2_p3: "しかし、もう一つの面もあります：可能性は無限です。個人化医療、クリーンエネルギー、国境を超える人間のつながり。意識的に使用することを学べば、テクノロジーは私たちの最高のツールになり得ます。",
+                section3_title: "個人的な考察",
+                section3_p1: "私はラップトップからこれを書いており、バックグラウンドでストリーミング音楽を聴きながら、数分ごとに集中力を中断する通知を受け取っています。皮肉は私を逃れません。",
+                section3_p2: "おそらく真の革命は次のイノベーションではなく、いつ切断するかを学ぶことです。すべての画面の後ろには、ますますデジタル化する世界で本物のつながりを求める、本当の問題を抱えた本当の人々がいることを思い出すことです。",
+                footer: "noonesweb • テクノロジーについてのいくつかの散漫な考え • 2025"
+            },
+            ko: {
+                title: "noonesweb",
+                tagline: "우리 주변 기술에 대한 생각들",
+                section1_title: "2025년의 기술 풍경",
+                section1_p1: "우리는 기술이 더 이상 새로운 것이 아니라 우리가 숨쉬는 공기가 된 시대에 살고 있습니다. 매일 아침 우리는 모든 인류의 지식에 즉시 접근할 수 있다는 기적을 생각하지 않고 휴대폰의 잠금을 해제합니다.",
+                section1_p2: "하지만 초기의 매혹을 넘어서, 피할 수 없는 질문이 떠오릅니다: 우리는 정말 어디로 가고 있는 걸까요?",
+                ai_title: "인공지능",
+                ai_desc: "더 이상 공상과학이 아닙니다. 우리의 이메일, 사진, 심지어 온라인 쇼핑 방식에도 있습니다. 문제는 그것이 올 것인지가 아니라, 우리가 어떻게 공존할 것인지입니다.",
+                vr_title: "가상현실",
+                vr_desc: "메타버스는 무한한 세계를 약속하지만, 때때로 우리가 매우 현실적인 문제들로부터 도피하기 위해 디지털 피난처를 만들고 있는 것은 아닌지 궁금합니다.",
+                quantum_title: "양자 컴퓨팅",
+                quantum_desc: "마법처럼 들리지만, IBM과 Google 같은 회사들이 이미 양자 경쟁을 벌이고 있습니다. 아마도 다음 혁명은 우리가 기대하는 것보다 더 조용할 것입니다.",
+                quote: "기술은 좋지도 나쁘지도 않지만, 중립적이지도 않습니다. 모든 코드 라인, 모든 알고리즘, 모든 디자인 결정은 그것을 만드는 사람들의 의도와 편견을 담고 있습니다.",
+                section2_title: "정말 나를 괴롭히는 것",
+                section2_p1: "우리의 일자리를 빼앗을 수도 있는 로봇들이 아닙니다. 바로 속도입니다. 10년 전에는 스마트폰이 사치품이었습니다. 오늘날 5세 아이가 1995년에 많은 성인들이 컴퓨터를 다루던 것보다 더 잘 태블릿을 다룹니다.",
+                section2_p2: "우리는 적응하고 있는 걸까요, 아니면 그저 흘러가는 대로 내버려두는 걸까요? 때때로 기술이 우리에게 제공하는 모든 것이 정말 필요한지 스스로에게 묻지 않고 업데이트를 쫓아가고 있는 것 같습니다.",
+                section2_p3: "하지만 다른 면도 있습니다: 가능성은 무한합니다. 개인화된 의학, 청정 에너지, 국경을 초월하는 인간 관계. 의식적으로 사용하는 법을 배운다면 기술은 우리의 최고의 도구가 될 수 있습니다.",
+                section3_title: "개인적인 성찰",
+                section3_p1: "나는 배경에서 스트리밍 음악을 들으며 랩톱에서 이것을 쓰고 있고, 몇 분마다 내 집중을 방해하는 알림을 받고 있습니다. 아이러니를 놓치지 않았습니다.",
+                section3_p2: "아마도 진짜 혁명은 다음 혁신에 있는 것이 아니라 언제 연결을 끊을지 배우는 것입니다. 모든 화면 뒤에는 점점 디지털화되는 세상에서 진정한 연결을 찾고 있는 진짜 문제를 가진 진짜 사람들이 있다는 것을 기억하는 것입니다.",
+                footer: "noonesweb • 기술에 대한 몇 가지 산발적인 생각들 • 2025"
+            },
+            zh: {
+                title: "noonesweb",
+                tagline: "关于我们周围技术的思考",
+                section1_title: "2025年的技术格局",
+                section1_p1: "我们生活在一个技术不再是新鲜事物，而是成为我们呼吸的空气的时代。每天早上我们解锁手机时，都没有想到能够即时访问所有人类知识是多么奇迹。",
+                section1_p2: "但是超越了最初的迷恋，一个不可避免的问题出现了：我们真正要去哪里？",
+                ai_title: "人工智能",
+                ai_desc: "它不再是科幻小说了。它存在于我们的邮件、照片中，甚至存在于我们在线购物的方式中。问题不是它是否会到来，而是我们如何与它共存。",
+                vr_title: "虚拟现实",
+                vr_desc: "元宇宙承诺无限的世界，但有时我想知道我们是否在创造数字避难所来逃避非常现实的问题。",
+                quantum_title: "量子计算",
+                quantum_desc: "听起来像魔法，但像IBM和Google这样的公司已经在进行量子竞赛。也许下一次革命会比我们预期的更安静。",
+                quote: "技术既不好也不坏，但它也不是中性的。每一行代码、每一个算法、每一个设计决策都承载着创造它们的人的意图和偏见。",
+                section2_title: "真正困扰我的是什么",
+                section2_p1: "不是可能抢走我们工作的机器人。而是速度。十年前，智能手机还是奢侈品。今天，一个五岁的孩子操作平板电脑比1995年许多成年人操作计算机还要熟练。",
+                section2_p2: "我们是在适应还是只是让自己被带着走？有时我觉得我们在追逐更新，却不问自己是否真的需要技术为我们提供的一切。",
+                section2_p3: "但也有另一面：可能性是无限的。个性化医疗、清洁能源、跨越边界的人际关系。如果我们学会有意识地使用技术，它可以成为我们最好的工具。",
+                section3_title: "个人反思",
+                section3_p1: "我用笔记本电脑写这篇文章，背景播放着流媒体音乐，每隔几分钟就会收到打断我注意力的通知。我没有错过这个讽刺。",
+                section3_p2: "也许真正的革命不在于下一个创新，而在于学习何时断开连接。记住每个屏幕背后都有真实的人，有真实的问题，在一个越来越数字化的世界中寻求真实的联系。",
+                footer: "noonesweb • 关于技术的一些零散想法 • 2025"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function translatePage(lang) {
+            if (!translations[lang]) return;
+            
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Add loading effect
+            document.body.classList.add('loading');
+            
+            setTimeout(() => {
+                const elements = document.querySelectorAll('[data-translate]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Remove loading effect
+                document.body.classList.remove('loading');
+            }, 200);
+        }
+
+        // Add event listeners
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.getAttribute('data-lang');
+                translatePage(lang);
+            });
+        });
+
+        // Auto-detect browser language
+        function detectLanguage() {
+            const browserLang = navigator.language.slice(0, 2);
+            if (translations[browserLang]) {
+                translatePage(browserLang);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            detectLanguage();
+        });
+    </script>
+</body>
+</html>
